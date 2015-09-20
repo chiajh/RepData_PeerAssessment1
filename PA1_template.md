@@ -12,13 +12,6 @@ options(scipen = 1)  # Turn off scientific notations for numbers
 ```r
 library(ggplot2)
 library(knitr)
-```
-
-```
-## Warning: package 'knitr' was built under R version 3.2.2
-```
-
-```r
 myData <- read.csv("activity.csv", header=TRUE, sep =",")
 myData$date <- as.Date(myData$date)
 ```
@@ -148,13 +141,6 @@ myDataNew$weekday <- as.factor(ifelse(weekdays(myDataNew$date) %in% c("Saturday"
 ```r
 avgStepByIntervalWeekday <- aggregate(steps ~ interval + weekday, myDataNew, FUN = mean, na.rm = TRUE) 
 library(lattice)
-```
-
-```
-## Warning: package 'lattice' was built under R version 3.2.2
-```
-
-```r
 xyplot(steps ~ interval | weekday, data = avgStepByIntervalWeekday,
        type = 'l',  xlab = 'Interval', ylab = 'Number of steps', layout = c(1,2))
 ```
